@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* ===== Design tokens: colors & type sizes live ONLY here ===== */
+:root {
+  --mint-50: #f1fbf5;
+  --mint-100: #dcf6e6;
+  --mint-300: #a8e6c1;
+  --mint-500: #3fb77a;
+  --mint-700: #1f7a4d;
+  --pink-50: #fff3f8;
+  --pink-100: #ffe0ee;
+  --pink-300: #ffb3d3;
+  --pink-500: #ee5a9b;
+  --pink-700: #b8286d;
+  --ink: #2b2433;
+  --ink-soft: #5d5568;
+  --paper: #fffafc;
+
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-2xl: 2.25rem;
+  --text-hero: clamp(2.5rem, 9vw, 4.75rem);
+}
+
+@theme inline {
+  --color-mint-50: var(--mint-50);
+  --color-mint-100: var(--mint-100);
+  --color-mint-300: var(--mint-300);
+  --color-mint-500: var(--mint-500);
+  --color-mint-700: var(--mint-700);
+  --color-pink-50: var(--pink-50);
+  --color-pink-100: var(--pink-100);
+  --color-pink-300: var(--pink-300);
+  --color-pink-500: var(--pink-500);
+  --color-pink-700: var(--pink-700);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --font-sans: var(--font-prompt), system-ui, sans-serif;
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-hero: var(--text-hero);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-prompt), system-ui, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-12px) rotate(var(--r, 0deg)); }
+}
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .floaty { animation: none; }
+  html { scroll-behavior: auto; }
+}
